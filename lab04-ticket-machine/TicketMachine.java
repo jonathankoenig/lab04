@@ -19,9 +19,17 @@ public class TicketMachine
     private int total;
 
     /**
-     * Create a machine that issues tickets of the given price.
-     * Note that the price must be greater than zero, and there
-     * are no checks to ensure this.
+     * Create a machine that issues tickets at 500 cents.
+     */
+    public TicketMachine()
+    {
+        price = 500;
+        balance = 0;
+        total = 0;
+    }
+
+    /**
+     * Creates a machine that issues tickets at the inputed value.
      */
     public TicketMachine(int cost)
     {
@@ -29,7 +37,7 @@ public class TicketMachine
         balance = 0;
         total = 0;
     }
-
+    
     /**
      * Return the price of a ticket.
      */
@@ -54,7 +62,48 @@ public class TicketMachine
     {
         balance = balance + amount;
     }
+    
+    /**
+     * Sets the price of a ticket.
+     */
+    public void setPrice(int cost)
+    {
+        price = cost;
+    }
 
+    /**
+     * Reduce price by given amount
+     */
+    public void discount(int amount)
+    {
+        price = price - amount;
+    }
+    
+    /**
+     * Prints out "Please insert the correct amount of money."
+     */
+    public void prompt()
+    {
+        System.out.println("Please Insert the correct amount of money.");
+    }
+    
+    /**
+     * Prints out the price of a ticket.
+     */
+    public void showPrice()
+    {
+        System.out.println("The price of a ticket is " + price + " cents.");
+    }
+    
+    /**
+     * Takes all the money out of the machine.
+     * Sets the total to 0.
+     */
+    public void empty()
+    {
+        total = 0;
+    }
+    
     /**
      * Print a ticket.
      * Update the total collected and
